@@ -9,25 +9,25 @@ import UIKit
 
 class RegionsTableViewController: UITableViewController {
 
-    var regions: [Region] = []
+    var country: Country!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Regions of \(country.country ?? "")"
     }
     
     
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        regions.count
+        self.country.regions!.count
     }
 
     
     override func tableView(    _ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-//        let countryName = countries[indexPath.row]
         
         var content = cell.defaultContentConfiguration()
-//        content.text = regions[indexPath.row].region
+        content.text = country.regions![indexPath.row].regionName
         cell.contentConfiguration = content
         return cell
     }

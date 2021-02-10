@@ -27,7 +27,7 @@ class RegionsTableViewController: UITableViewController {
 //        let countryName = countries[indexPath.row]
         
         var content = cell.defaultContentConfiguration()
-        content.text = regions[indexPath.row].region
+//        content.text = regions[indexPath.row].region
         cell.contentConfiguration = content
         return cell
     }

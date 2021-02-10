@@ -8,62 +8,54 @@
 struct Country: Decodable {
     
     var country: String?
-    let capitalCity: String?
-    let population: Int?
-    let continent: String?
-    let confirmed: Int?
-    let recovered: Int?
-    let deaths: Int?
-    let updated: String?
+    var capitalCity: String?
+    var regions: [Region]?
+    var population: Int?
+    var continent: String?
+    var confirmed: Int?
+    var recovered: Int?
+    var deaths: Int?
+    var updated: String?
     
-    init(value: [String: Any], countryName: String) {
-        country = countryName
-        capitalCity = value["capital_city"] as? String
-        population = value["population"] as? Int
-        continent = value["continent"] as? String
-        confirmed = value["confirmed"] as? Int
-        recovered = value["recovered"] as? Int
-        deaths = value["deaths"] as? Int
-        updated = value["updated"] as? String
+    init(countryName: String, regions: Any) {
+        
+            let regionsDict = regions as? [String: Any] ?? [:]
+            let total = regionsDict["All"] as? [String: Any] ?? [:] //the way to total country info
+            
+            country = countryName
+            capitalCity = total["capital_city"] as? String
+            population = total["population"] as? Int
+            continent = total["continent"] as? String
+            confirmed = total["confirmed"] as? Int
+            recovered = total["recovered"] as? Int
+            deaths = total["deaths"] as? Int
+            updated = total["updated"] as? String
+            self.regions = []
+        
+            // obtaining an array with regions for each country
+            regionsDict.forEach { (region, info) in
+                if region != "All" {
+                    let regionInfo = info as? [String: Any] ?? [:]
+                    let region = Region(regionInfo: regionInfo, regionName: region)
+                    self.regions?.append(region)
+                }
+            }
+        }
     }
-    
-}
-
-struct RegionList: Decodable {
-    
-    let All: Country?
-    
-}
-
-struct CountryList: Decodable {
-
-    let Russia: RegionList?
-    let Afghanistan: RegionList?
-    
-}
 
 struct Region: Decodable {
     
-    let country: String?
-    let capitalCity: String?
-    let region: String?
-    let population: Int?
-    let continent: String?
-    let confirmed: Int?
-    let recovered: Int?
-    let deaths: Int?
-    let updated: String?
+    var regionName: String?
+    var confirmed: Int?
+    var recovered: Int?
+    var deaths: Int?
+    var updated: String?
     
-    init(regionName: String, value: Any) {
-        let regionDict = value as? [String: Any] ?? [:]
-        country = regionDict["country"] as? String
-        capitalCity = regionDict["capital_city"] as? String
-        region = regionName
-        population = regionDict["population"] as? Int
-        continent = regionDict["continent"] as? String
-        confirmed = regionDict["confirmed"] as? Int
-        recovered = regionDict["recovered"] as? Int
-        deaths = regionDict["deaths"] as? Int
-        updated = regionDict["updated"] as? String
+    init(regionInfo: [String: Any], regionName: String) {
+        self.regionName = regionName
+        confirmed = regionInfo["confirmed"] as? Int
+        recovered = regionInfo["recovered"] as? Int
+        deaths = regionInfo["deaths"] as? Int
+        updated = regionInfo["updated"] as? String
     }
 }

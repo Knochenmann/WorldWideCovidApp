@@ -15,5 +15,14 @@ class DataManager {
     var regions: [Region] = []
     
     private init() {}
+    
+    func getCountries(from json: [String: Any]) -> [Country] {
+//        var countries: [Country] = []
+        for (country, regions) in json {
+            let country = Country(countryName: country, regions: regions)
+            self.countries.append(country)
+        }
+        return countries
+    }
 }
 

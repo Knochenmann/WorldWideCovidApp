@@ -9,11 +9,10 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    var countries = DataManager.shared.countries
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+//        NetworkManager.fetchDataManually()        
     }
 
-
 }
-

@@ -32,9 +32,8 @@ class NetworkManager {
             guard let data = data else { return }
 
             do {
-                let countryListJSON = try JSONSerialization.jsonObject(with: data, options: []) // вручную
+                let countryListJSON = try JSONSerialization.jsonObject(with: data, options: [])
                 let countryList = countryListJSON as? [String: Any] ?? [:]
-                self.json = countryList
                 
                 DispatchQueue.main.async {
                     complition(countryList)

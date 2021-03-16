@@ -16,6 +16,9 @@
 		4A1CBEC225C9F233004FA20C /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1CBEC125C9F233004FA20C /* NetworkManager.swift */; };
 		4A1CBEC525C9F282004FA20C /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1CBEC425C9F282004FA20C /* Country.swift */; };
 		4A4856F025D40FC700672F52 /* RegionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4856EF25D40FC700672F52 /* RegionsTableViewController.swift */; };
+		4A75BCF425D49B6B0015659D /* CountriesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A75BCF325D49B6B0015659D /* CountriesTableViewCell.swift */; };
+		4A833B5F26014BEB006328E6 /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A833B5E26014BEB006328E6 /* Region.swift */; };
+		4AA6D5AE26012AAF00D74BB7 /* RegionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA6D5AD26012AAF00D74BB7 /* RegionsTableViewCell.swift */; };
 		4AE18EC925CB53E2006FD04F /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE18EC825CB53E2006FD04F /* DataManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +34,9 @@
 		4A1CBEC125C9F233004FA20C /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		4A1CBEC425C9F282004FA20C /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		4A4856EF25D40FC700672F52 /* RegionsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionsTableViewController.swift; sourceTree = "<group>"; };
+		4A75BCF325D49B6B0015659D /* CountriesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesTableViewCell.swift; sourceTree = "<group>"; };
+		4A833B5E26014BEB006328E6 /* Region.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
+		4AA6D5AD26012AAF00D74BB7 /* RegionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionsTableViewCell.swift; sourceTree = "<group>"; };
 		4AE18EC825CB53E2006FD04F /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -64,19 +70,70 @@
 		4A1CBEA825C88EDB004FA20C /* NetworkingApp */ = {
 			isa = PBXGroup;
 			children = (
-				4A1CBEA925C88EDB004FA20C /* AppDelegate.swift */,
-				4A1CBEAB25C88EDB004FA20C /* SceneDelegate.swift */,
-				4A1CBEAF25C88EDB004FA20C /* Main.storyboard */,
-				4A4856EF25D40FC700672F52 /* RegionsTableViewController.swift */,
-				4A1CBEBE25C9F212004FA20C /* CountriesTableViewController.swift */,
-				4A1CBEC125C9F233004FA20C /* NetworkManager.swift */,
-				4AE18EC825CB53E2006FD04F /* DataManager.swift */,
-				4A1CBEC425C9F282004FA20C /* Country.swift */,
+				4A833B6226014C4D006328E6 /* Delegates */,
+				4A833B5A26014BA4006328E6 /* Storyboards */,
+				4A833B5826014B8E006328E6 /* View Controllers */,
+				4A833B5B26014BB9006328E6 /* TableViewCells */,
+				4A833B5C26014BD3006328E6 /* Managers */,
+				4A833B6126014C3F006328E6 /* Models */,
 				4A1CBEB225C88EDF004FA20C /* Assets.xcassets */,
-				4A1CBEB425C88EDF004FA20C /* LaunchScreen.storyboard */,
 				4A1CBEB725C88EDF004FA20C /* Info.plist */,
 			);
 			path = NetworkingApp;
+			sourceTree = "<group>";
+		};
+		4A833B5826014B8E006328E6 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4A1CBEBE25C9F212004FA20C /* CountriesTableViewController.swift */,
+				4A4856EF25D40FC700672F52 /* RegionsTableViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		4A833B5A26014BA4006328E6 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				4A1CBEAF25C88EDB004FA20C /* Main.storyboard */,
+				4A1CBEB425C88EDF004FA20C /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		4A833B5B26014BB9006328E6 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				4A75BCF325D49B6B0015659D /* CountriesTableViewCell.swift */,
+				4AA6D5AD26012AAF00D74BB7 /* RegionsTableViewCell.swift */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		4A833B5C26014BD3006328E6 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				4A1CBEC125C9F233004FA20C /* NetworkManager.swift */,
+				4AE18EC825CB53E2006FD04F /* DataManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		4A833B6126014C3F006328E6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4A1CBEC425C9F282004FA20C /* Country.swift */,
+				4A833B5E26014BEB006328E6 /* Region.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4A833B6226014C4D006328E6 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				4A1CBEA925C88EDB004FA20C /* AppDelegate.swift */,
+				4A1CBEAB25C88EDB004FA20C /* SceneDelegate.swift */,
+			);
+			path = Delegates;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,9 +209,12 @@
 				4A1CBEBF25C9F212004FA20C /* CountriesTableViewController.swift in Sources */,
 				4A4856F025D40FC700672F52 /* RegionsTableViewController.swift in Sources */,
 				4A1CBEC225C9F233004FA20C /* NetworkManager.swift in Sources */,
+				4A833B5F26014BEB006328E6 /* Region.swift in Sources */,
 				4AE18EC925CB53E2006FD04F /* DataManager.swift in Sources */,
 				4A1CBEAA25C88EDB004FA20C /* AppDelegate.swift in Sources */,
+				4AA6D5AE26012AAF00D74BB7 /* RegionsTableViewCell.swift in Sources */,
 				4A1CBEC525C9F282004FA20C /* Country.swift in Sources */,
+				4A75BCF425D49B6B0015659D /* CountriesTableViewCell.swift in Sources */,
 				4A1CBEAC25C88EDB004FA20C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -309,10 +369,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.NetworkingApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.CovidInfo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -328,10 +388,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.NetworkingApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.CovidInfo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

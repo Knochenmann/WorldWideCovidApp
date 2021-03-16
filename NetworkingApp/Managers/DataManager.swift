@@ -17,6 +17,10 @@ class DataManager {
     private init() {}
     
     func getCountries(from json: [String: Any]) -> [Country] {
+        if self.countries.count > 0 {
+            countries.removeAll()
+        }
+        
         for (country, regions) in json {
             let country = Country(countryName: country, regions: regions)
             self.countries.append(country)

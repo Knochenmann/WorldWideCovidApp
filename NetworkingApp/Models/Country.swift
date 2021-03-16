@@ -5,8 +5,8 @@
 //  Created by Егор Костюхин on 02.02.2021.
 //
 
-struct Country: Decodable {
-    
+struct Country: Decodable, Comparable {
+
     var country: String?
     var capitalCity: String?
     var regions: [Region]?
@@ -17,8 +17,16 @@ struct Country: Decodable {
     var deaths: Int?
     var updated: String?
     
+    static func == (lhs: Country, rhs: Country) -> Bool {
+        lhs.country! == rhs.country!
+    }
+    
+    static func < (lhs: Country, rhs: Country) -> Bool {
+        lhs.country! < rhs.country!
+    }
+
     init(countryName: String, regions: Any) {
-        
+            
             let regionsDict = regions as? [String: Any] ?? [:]
             let total = regionsDict["All"] as? [String: Any] ?? [:] //the way to total country info
             
@@ -43,19 +51,4 @@ struct Country: Decodable {
         }
     }
 
-struct Region: Decodable {
-    
-    var regionName: String?
-    var confirmed: Int?
-    var recovered: Int?
-    var deaths: Int?
-    var updated: String?
-    
-    init(regionInfo: [String: Any], regionName: String) {
-        self.regionName = regionName
-        confirmed = regionInfo["confirmed"] as? Int
-        recovered = regionInfo["recovered"] as? Int
-        deaths = regionInfo["deaths"] as? Int
-        updated = regionInfo["updated"] as? String
-    }
-}
+
